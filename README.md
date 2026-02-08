@@ -78,8 +78,6 @@
 
 ## Live Demo
 
-> Add your deployed URL here once you deploy.
-
 | Environment | URL |
 |-------------|-----|
 | **Production** | `https://rajspace.up.railway.app` *(example)* |
@@ -88,8 +86,6 @@
 ---
 
 ## Screenshots
-
-> Add your website screenshots to the `screenshots/` folder. Replace paths below with your images.
 
 <table>
   <tr>
