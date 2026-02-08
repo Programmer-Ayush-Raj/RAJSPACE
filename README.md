@@ -389,7 +389,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/rajspace.git
+git clone https://github.com/https://github.com/Programmer-Ayush-Raj/RAJSPACE.git
 cd rajspace
 ```
 
@@ -551,22 +551,6 @@ Contributions are welcome! Please follow these steps:
 ## FAQ
 
 <details>
-<summary><b>How do I add my logo and banner?</b></summary>
-
-Place your images in the `assets/` folder:
-- `assets/logo.png` — Recommended: 120×120px or 256×256px
-- `assets/banner.png` — Recommended: 1200×400px or 800×280px
-
-</details>
-
-<details>
-<summary><b>How do I add screenshots?</b></summary>
-
-Add images to the `screenshots/` folder. Existing placeholders: `home.png`, `category.png`, `create.png`, `listinginfo.png`, `login.png`, `mapandreviews.png`. Replace or add more as needed.
-
-</details>
-
-<details>
 <summary><b>Seed user credentials?</b></summary>
 
 After `npm run seed`: **Username:** `rajspace-seed` · **Password:** `seed-pass-123`
@@ -596,7 +580,7 @@ After `npm run seed`: **Username:** `rajspace-seed` · **Password:** `seed-pass-
 
 ## License
 
-This project is licensed under the **ISC License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **ISC License** — see the [LICENSE](#-LICENSE) file for details.
 
 ---
 
