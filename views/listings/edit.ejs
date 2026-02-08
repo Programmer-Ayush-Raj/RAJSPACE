@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") -%>
+
+  <body>
+    <div class="row offset-2">
+      <div class="col-8">
+        <br><br>
+        <h3 class="mb-4">Edit Your Listing</h3>
+
+        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate
+          enctype="multipart/form-data">
+
+          <!-- Title -->
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Title is required.</div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" rows="4"
+              required><%= listing.description %></textarea>
+            <div class="valid-feedback">Description looks good.</div>
+            <div class="invalid-feedback">Please enter a description.</div>
+          </div>
+
+          <!-- Image -->
+
+          <div class="mb-3">
+            <label class="form-label">Upload New Image </label>
+            <input name="listing[image]" type="file" class="form-control" />
+          </div>
+
+          <!-- Category -->
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select name="listing[category]" class="form-select" required>
+
+              <option value="Trending" <%=listing.category==="Trending" ? "selected" : "" %>>Trending</option>
+              <option value="Rooms" <%=listing.category==="Rooms" ? "selected" : "" %>>Rooms</option>
+              <option value="Entire Home" <%=listing.category==="Entire Home" ? "selected" : "" %>>Entire Home</option>
+              <option value="Pool" <%=listing.category==="Pool" ? "selected" : "" %>>Pool</option>
+              <option value="Beach" <%=listing.category==="Beach" ? "selected" : "" %>>Beach</option>
+              <option value="Mountain" <%=listing.category==="Mountain" ? "selected" : "" %>>Mountain</option>
+              <option value="Nature" <%=listing.category==="Nature" ? "selected" : "" %>>Nature</option>
+              <option value="City" <%=listing.category==="City" ? "selected" : "" %>>City</option>
+              <option value="Luxury" <%=listing.category==="Luxury" ? "selected" : "" %>>Luxury</option>
+              <option value="Family" <%=listing.category==="Family" ? "selected" : "" %>>Family</option>
+              <option value="Pet Friendly" <%=listing.category==="Pet Friendly" ? "selected" : "" %>>Pet Friendly
+              </option>
+
+            </select>
+          </div>
+
+
+          <!-- Price and Country -->
+          <div class="row">
+            <div class="mb-3 col-md-4">
+              <label class="form-label">Price</label>
+              <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+              <div class="valid-feedback">Price updated.</div>
+              <div class="invalid-feedback">Please enter a valid price.</div>
+            </div>
+
+            <div class="mb-3 col-md-8">
+              <label class="form-label">Country</label>
+              <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+              <div class="valid-feedback">Country looks good.</div>
+              <div class="invalid-feedback">Country is required.</div>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="mb-3">
+            <label class="form-label">Location</label>
+            <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+            <div class="valid-feedback">Location updated.</div>
+            <div class="invalid-feedback">Please enter a location.</div>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn btn-dark">Update Listing</button>
+          <br><br>
+
+        </form>
+      </div>
+    </div>
+  </body>

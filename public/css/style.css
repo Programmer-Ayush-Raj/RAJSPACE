@@ -1,0 +1,252 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+/* Navbar */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color: #0d9488;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* Footer */
+
+.f-info {
+  text-align: center;
+  min-height: 9rem;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Social icons */
+.f-info-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.f-info-socials i {
+  font-size: 1.4rem;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover brand effect */
+.f-info-socials i:hover {
+  color: #0d9488;
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* Brand text */
+.f-info-brand {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+  letter-spacing: 0.3px;
+}
+
+/* Footer links */
+.f-info-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.f-info-links a:hover {
+  color: #0d9488;
+  text-decoration: underline;
+}
+
+
+/* Cards */
+
+.listing-card {
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 16px !important;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background-color: #fff;
+}
+
+/* Hover lift + shadow */
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.card-img-top {
+  border-radius: 16px 16px 0 0 !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.4s ease;
+}
+
+/* Image zoom on hover */
+.listing-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Card body */
+.card-body {
+  padding: 0.75rem 0.25rem !important;
+}
+
+/* Text */
+.card-text {
+  font-weight: 500 !important;
+  line-height: 1.4;
+  color: #111;
+}
+
+.card-text b {
+  font-size: 1.05rem;
+}
+
+/* Link reset */
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card overlay effect */
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.1;
+  background-color: #000;
+}
+
+
+/* New-Page */
+
+.add-btn{
+    background-color: #0d9488 !important;
+    border: none !important;
+}
+
+/* Edit-Page */
+.edit-btn {
+    background-color: #0d9488 !important;
+    border: none !important;
+}
+
+/* Show-Page */
+
+/* .show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+} */
+
+/* Show Page Enhancements */
+
+.price-card {
+  border-radius: 16px;
+  position: sticky;
+  top: 6rem;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
+
+.show-img {
+  height: 55vh;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 16px;
+}
+
+.btn-danger {
+  background-color: #0d9488 !important;
+  border: none !important;
+}
+
+.btn-danger:hover {
+  background-color: #0f766e !important;
+}
+
+
+/* Reviews UI Upgrade */
+
+.review-card {
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.starability-result {
+  margin-bottom: 0.25rem;
+}
+
+textarea.form-control {
+  border-radius: 12px;
+}
+
+/* Map */
+/* #map { 
+  height: 400px;
+  width: 70vh;
+  border-radius: 10px;
+  margin: 0 auto;
+} */
+
+
+/* Map */
+#map { 
+  height: 400px;
+  width: 95%;       
+  border-radius: 15px;
+  margin: 0 auto;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+} 
+
+

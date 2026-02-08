@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate") -%>
+
+<body>
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-6">
+      <div class="card shadow-sm border-0">
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 220px; object-fit: cover;">
+        <div class="card-body p-4">
+          <h4 class="fw-bold mb-2">Request to book</h4>
+          <p class="text-muted mb-3"><%= listing.title %> · <%= listing.location %>, <%= listing.country %></p>
+          <p class="fs-5 mb-4">
+            <strong>₹ <%= listing.price.toLocaleString("en-IN") %></strong>
+            <span class="text-muted">/ night</span>
+          </p>
+          <p class="small text-muted mb-4">
+            You’re one step away. Full booking with dates and payment will be available soon on RAJSPACE.
+          </p>
+          <a href="/listings/<%= listing._id %>" class="btn btn-danger w-100">Back to listing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

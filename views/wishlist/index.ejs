@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplate") -%>
+
+<body>
+  <div class="container">
+    <h2 class="fw-bold mb-3">Your wishlist</h2>
+    <p class="text-muted mb-4">Stays you've saved for later.</p>
+
+    <% if (listings.length === 0) { %>
+      <div class="card p-5 text-center">
+        <i class="fa-regular fa-heart fa-3x text-muted mb-3"></i>
+        <h5>No saved stays yet</h5>
+        <p class="text-muted">When you find a place you like, click "Save to wishlist" to see it here.</p>
+        <a href="/listings" class="btn btn-danger mt-2">Explore stays</a>
+      </div>
+    <% } else { %>
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+        <% for (const listing of listings) { %>
+          <div class="col">
+            <div class="card h-100 listing-card position-relative">
+              <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none text-dark">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing" style="height: 12rem; object-fit: cover;">
+                <div class="card-body">
+                  <h6 class="card-title fw-semibold"><%= listing.title %></h6>
+                  <p class="card-text text-muted small mb-0">
+                    &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                  </p>
+                </div>
+              </a>
+              <form method="POST" action="/wishlist/<%= listing._id %>?_method=DELETE" class="position-absolute top-0 end-0 m-2">
+                <button type="submit" class="btn btn-sm btn-light shadow-sm" title="Remove from wishlist">
+                  <i class="fa-solid fa-heart text-danger"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</body>

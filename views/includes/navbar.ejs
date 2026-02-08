@@ -1,0 +1,95 @@
+<style>
+  .navbar-brand-rajspace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #0f766e;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .navbar-brand-rajspace:hover {
+    color: #0d9488;
+  }
+  .navbar-brand-rajspace .brand-icon {
+    color: #0d9488;
+    font-size: 1.6rem;
+  }
+  .search-btn {
+    background-color: #0d9488;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    display: flex;
+    border: none;
+  }
+
+  .search-btn:hover {
+    background-color: #0f766e;
+    color: #ffffff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    width: 420px !important;
+    max-width: 500px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/listings">
+      <i class="fa-regular fa-compass brand-icon"></i>
+      <span class="navbar-brand-rajspace">RAJSPACE</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/wishlist">Wishlist</a>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations.." />
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button> 
+        </form> -->
+
+        <form class="d-flex" action="/listings" method="GET">
+
+          <input class="form-control me-2 search-inp" type="search" name="q"
+            placeholder="Search destinations, cities, or stays" value="<%= typeof q !== 'undefined' ? q : '' %>">
+
+          <button class="btn search-btn d-flex align-items-center justify-content-center gap-0.5" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">List your space</a>
+        <% if(!currUser) { %>
+          <a class="nav-link active" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+          <% } %>
+            <% if(currUser) { %>
+              <a class="nav-link" href="/logout"><b>Logout</b></a>
+              <% } %>
+
+
+      </div>
+    </div>
+  </div>
+</nav>
