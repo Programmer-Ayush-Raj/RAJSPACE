@@ -10,18 +10,41 @@ body{
 }
 
 /* Navbar */
-.navbar{
+.navbar {
     height: 5rem;
     background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.fa-compass{
+/* Ensure solid navbar background on all screens (fixes mobile transparency/overlap) */
+.navbar-mobile-solid,
+.navbar.bg-white {
+    background-color: #ffffff !important;
+}
+
+.navbar-collapse {
+    background-color: #ffffff;
+}
+
+.fa-compass {
     color: #0d9488;
     font-size: 2rem;
 }
 
-.nav-link{
+.nav-link {
     color: #222222 !important;
+}
+
+/* Navbar: ensure proper z-index so content doesn't overlap */
+.navbar.sticky-top {
+    z-index: 1030;
+}
+
+/* Auth section: border separator only when collapsed (mobile) */
+@media (min-width: 768px) {
+    .navbar-auth-section.border-top {
+        border-top: none !important;
+    }
 }
 
 /* Footer */
@@ -264,6 +287,136 @@ textarea.form-control {
 
 .legal-content section h5 {
   color: #0d9488;
+}
+
+/* ========================================
+   Mobile & Responsive Fixes
+   ======================================== */
+
+@media (max-width: 767.98px) {
+  /* Navbar: solid background, proper height, tap targets */
+  .navbar {
+    min-height: 3.5rem;
+    height: auto;
+  }
+
+  .navbar-collapse {
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-collapse .nav-link {
+    padding: 0.6rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-collapse .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+
+  /* Search form: full width, proper stacking */
+  .navbar-collapse form {
+    width: 100%;
+  }
+
+  .navbar-collapse .search-inp {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Container: prevent content from touching edges */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+
+  /* Category filters: touch-friendly, proper wrap */
+  #filters .filter.filter-link {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.6rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #filters .filter.filter-link p {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.75rem;
+  }
+
+  .tax-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .tax-toggle .form-check-label {
+    font-size: 0.85rem;
+  }
+
+  /* Cards: reduce hover transform on touch to avoid layout shift */
+  .listing-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .listing-card:hover .card-img-top {
+    transform: none;
+  }
+
+  /* Show page: price card not sticky on mobile (stacks in flow) */
+  .price-card {
+    position: static;
+  }
+
+  .show-img {
+    height: 40vh;
+  }
+
+  /* Footer: padding and touch targets */
+  .f-info {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .f-info-socials {
+    gap: 1.25rem;
+  }
+
+  .f-info-socials a {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .f-info-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Map: full width on mobile */
+  #map {
+    width: 100%;
+  }
+}
+
+/* Tablet: minor tweaks */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .search-inp {
+    width: 200px;
+  }
+}
+
+/* Ensure body doesn't shift when navbar is fixed */
+body {
+  padding-top: 0;
 } 
 
 

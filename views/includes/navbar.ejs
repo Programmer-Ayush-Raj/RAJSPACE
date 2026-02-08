@@ -24,71 +24,66 @@
     display: flex;
     border: none;
   }
-
   .search-btn:hover {
     background-color: #0f766e;
     color: #ffffff;
   }
-
   .search-btn i {
     display: inline;
     margin-right: 0.5rem;
   }
-
   .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    width: 420px !important;
-    max-width: 500px;
+    padding: 0.5rem 1rem;
+    min-width: 0;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .search-inp {
+      width: 280px;
+      max-width: 420px;
+    }
+  }
+  @media (min-width: 992px) {
+    .search-inp {
+      width: 340px;
+    }
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-md navbar-mobile-solid bg-white border-bottom sticky-top">
+  <div class="container-fluid px-3 px-md-4">
     <a class="navbar-brand d-flex align-items-center gap-2" href="/listings">
       <i class="fa-regular fa-compass brand-icon"></i>
       <span class="navbar-brand-rajspace">RAJSPACE</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/wishlist">Wishlist</a>
+      <div class="navbar-nav pt-2 pt-md-0">
+        <a class="nav-link py-2 py-md-0" href="/listings">Explore</a>
+        <a class="nav-link py-2 py-md-0" href="/wishlist">Wishlist</a>
       </div>
 
-      <div class="navbar-nav ms-auto">
-        <!-- <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations.." />
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button> 
-        </form> -->
+      <form class="d-flex my-3 my-md-0 ms-md-auto me-md-2 flex-grow-1 flex-md-grow-0" action="/listings" method="GET">
+        <input class="form-control me-2 search-inp" type="search" name="q"
+          placeholder="Search destinations, cities, or stays" value="<%= typeof q !== 'undefined' ? q : '' %>" aria-label="Search">
+        <button class="btn search-btn d-flex align-items-center justify-content-center gap-1 flex-shrink-0" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="d-none d-md-inline">Search</span>
+        </button>
+      </form>
 
-        <form class="d-flex" action="/listings" method="GET">
-
-          <input class="form-control me-2 search-inp" type="search" name="q"
-            placeholder="Search destinations, cities, or stays" value="<%= typeof q !== 'undefined' ? q : '' %>">
-
-          <button class="btn search-btn d-flex align-items-center justify-content-center gap-0.5" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-          </button>
-
-        </form>
-
-      </div>
-
-
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">List your space</a>
+      <div class="navbar-nav navbar-auth-section ms-auto ms-md-0 pt-2 pt-md-0 border-top mt-2 mt-md-0 pt-3 pt-md-0">
+        <a class="nav-link py-2 py-md-0" href="/listings/new">List your space</a>
         <% if(!currUser) { %>
-          <a class="nav-link active" href="/signup"><b>Sign Up</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
-          <% } %>
-            <% if(currUser) { %>
-              <a class="nav-link" href="/logout"><b>Logout</b></a>
-              <% } %>
-
-
+          <a class="nav-link active py-2 py-md-0" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link py-2 py-md-0" href="/login"><b>Login</b></a>
+        <% } %>
+        <% if(currUser) { %>
+          <a class="nav-link py-2 py-md-0" href="/logout"><b>Logout</b></a>
+        <% } %>
       </div>
     </div>
   </div>
