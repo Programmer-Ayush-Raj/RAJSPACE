@@ -93,24 +93,24 @@
     <td align="center"><b>Listing Detail</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/home.png" alt="Home" width="100%"/></td>
-    <td><img src="./screenshots/listinginfo.png" alt="Listing Detail" width="100%"/></td>
+    <td><img src="./screenshots/home_v2.png" alt="Home" width="100%"/></td>
+    <td><img src="./screenshots/listinginfo_v2.png" alt="Listing Detail" width="100%"/></td>
   </tr>
   <tr>
     <td align="center"><b>Category Filter</b></td>
     <td align="center"><b>Map & Reviews</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/category.png" alt="Category" width="100%"/></td>
-    <td><img src="./screenshots/mapandreviews.png" alt="Map and Reviews" width="100%"/></td>
+    <td><img src="./screenshots/category_v2.png" alt="Category" width="100%"/></td>
+    <td><img src="./screenshots/mapandreviews_v2.png" alt="Map and Reviews" width="100%"/></td>
   </tr>
   <tr>
     <td align="center"><b>Create Listing</b></td>
     <td align="center"><b>Login / Auth</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/create.png" alt="Create Listing" width="100%"/></td>
-    <td><img src="./screenshots/login.png" alt="Login" width="100%"/></td>
+    <td><img src="./screenshots/create_v2.png" alt="Create Listing" width="100%"/></td>
+    <td><img src="./screenshots/login_v2.png" alt="Login" width="100%"/></td>
   </tr>
 </table>
 
