@@ -1,4 +1,12 @@
 
+const mapWrapper = document.querySelector('[data-map-token][data-listing]');
+if (!mapWrapper) {
+    throw new Error('Map container data attributes missing.');
+}
+
+const mapToken = mapWrapper.dataset.mapToken;
+const listing = JSON.parse(mapWrapper.dataset.listing || '{}');
+
 mapboxgl.accessToken = mapToken;
 
 const map = new mapboxgl.Map({

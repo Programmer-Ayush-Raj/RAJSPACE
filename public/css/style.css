@@ -247,6 +247,23 @@ textarea.form-control {
   margin: 0 auto;
   border: 1px solid #e5e7eb;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Legal pages (Privacy Policy, Terms of Service) */
+.legal-content {
+  line-height: 1.7;
+}
+
+.legal-content ul {
+  padding-left: 1.5rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-content section h5 {
+  color: #0d9488;
 } 
 
 

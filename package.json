@@ -1,5 +1,7 @@
 {
-  "engines": { "node": "24.13.0" },
+  "engines": {
+    "node": "24.13.0"
+  },
   "name": "rajspace",
   "version": "1.0.0",
   "description": "RAJSPACE - Stays & Experiences platform",
@@ -9,7 +11,13 @@
     "start": "node app.js",
     "seed": "node init/index.js"
   },
-  "keywords": ["stays", "rentals", "express", "mongodb", "ejs"],
+  "keywords": [
+    "stays",
+    "rentals",
+    "express",
+    "mongodb",
+    "ejs"
+  ],
   "author": "RAJ",
   "license": "ISC",
   "dependencies": {
