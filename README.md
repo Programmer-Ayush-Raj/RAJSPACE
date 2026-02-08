@@ -1,8 +1,5 @@
 <div align="center">
 
-<!-- Logo - Add your logo to assets/logo.png -->
-![RAJSPACE Logo](./assets/logo.png)
-
 # RAJSPACE
 
 ### Stays & Experiences — Discover, List, and Book Unique Places
