@@ -80,7 +80,7 @@
 
 | Environment | URL |
 |-------------|-----|
-| **Production** | `https://rajspace.onrender.com/` |
+| **Production** | `https://rajspace.onrender.com` *(example)* |
 | **Local** | `http://localhost:8080` |
 
 ---
