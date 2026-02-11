@@ -21,7 +21,7 @@
 
 **Production-Ready** · **MVC Architecture** · **Full CRUD** · **RESTful API** · **Session Auth** · **Responsive UI**
 
-[Live Demo](#-live-demo) ·
+[Live Demo](https://rajspace.onrender.com/) ·
 [Features](#-features) ·
 [Architecture](#-architecture) ·
 [Quick Start](#-quick-start) ·
@@ -80,7 +80,7 @@
 
 | Environment | URL |
 |-------------|-----|
-| **Production** | `https://rajspace.up.railway.app` *(example)* |
+| **Production** | `https://rajspace.onrender.com/` |
 | **Local** | `http://localhost:8080` |
 
 ---
