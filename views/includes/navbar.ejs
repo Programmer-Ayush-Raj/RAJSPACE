@@ -75,7 +75,11 @@
         </button>
       </form>
 
-      <div class="navbar-nav navbar-auth-section ms-auto ms-md-0 pt-2 pt-md-0 border-top mt-2 mt-md-0 pt-3 pt-md-0">
+      <div class="d-flex align-items-center gap-2 navbar-auth-section ms-auto ms-md-0 pt-2 pt-md-0 border-top mt-2 mt-md-0 pt-3 pt-md-0">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+        </button>
         <a class="nav-link py-2 py-md-0" href="/listings/new">List your space</a>
         <% if(!currUser) { %>
           <a class="nav-link active py-2 py-md-0" href="/signup"><b>Sign Up</b></a>

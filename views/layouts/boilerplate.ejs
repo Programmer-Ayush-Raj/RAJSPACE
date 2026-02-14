@@ -7,6 +7,12 @@
     <meta name="description" content="RAJSPACE — Discover and list unique stays and experiences. Your space, your way.">
     <link rel="icon" href="/favicon-v2.ico" type="image/x-icon">
     <title>RAJSPACE | Stays & Experiences</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
 
 
     <link rel="stylesheet" href="/css/style.css">

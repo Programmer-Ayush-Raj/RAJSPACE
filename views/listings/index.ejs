@@ -1,238 +1,264 @@
 <% layout("/layouts/boilerplate") -%>
-  
-    <style>
-      /* Single centered block: categories + toggle as one cohesive row */
-      #filters {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
 
-      .filter-bar-inner {
-        display: flex;
-        align-items: center;
-        gap: 1.25rem;
-        flex-wrap: wrap;
-        padding: 0.6rem 1rem;
-        border-radius: 12px;
-        background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
-        border: 1px solid #eee;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-      }
+  <style>
+    /* Single centered block: categories + toggle as one cohesive row */
+    #filters {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-      .filter-categories {
-        display: flex;
-        min-width: 0;
-        align-items: center;
-        gap: 0.5rem;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        box-sizing: border-box;
-      }
+    .filter-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
+      border: 1px solid #eee;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
 
-      .filter {
-        text-align: center;
-        margin-right: 0;
-        margin-top: 0;
-        opacity: 0.7;
-        text-decoration: none;
-        color: inherit;
-        flex-shrink: 0;
-      }
+    .filter-categories {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
+    }
 
-      .filter.filter-link {
-        padding: 0.5rem 0.75rem;
-        border-radius: 12px;
-        transition: background-color 0.2s, opacity 0.2s;
-      }
+    .filter {
+      text-align: center;
+      margin-right: 0;
+      margin-top: 0;
+      opacity: 1;
+      text-decoration: none;
+      color: #374151;
+      flex-shrink: 0;
+    }
 
-      .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-      }
+    .filter.filter-link {
+      padding: 0.5rem 0.75rem;
+      border-radius: 12px;
+      transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+    }
 
-      .filter.filter-link:hover {
-        background-color: rgba(13, 148, 136, 0.08);
-      }
+    .filter.filter-link i {
+      font-size: 1.15rem;
+      color: #374151;
+    }
 
-      .tax-info {
-        display: none;
-      }
+    .filter.filter-link p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #374151;
+      margin: 0.2rem 0 0 0;
+    }
 
-      .tax-toggle {
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        padding: 0.4rem 0.75rem;
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        transition: all 0.2s ease;
-        height: 2.25rem;
-      }
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
 
-      .tax-toggle:hover {
-        background-color: #f5f5f5;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
+    .filter.filter-link:hover {
+      background-color: rgba(13, 148, 136, 0.08);
+    }
 
-      .tax-toggle .form-check-label {
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: #333;
-        cursor: pointer;
-      }
+    .tax-info {
+      display: none;
+    }
 
-      .tax-toggle .form-check-input {
-        cursor: pointer;
-        margin-right: 0.5rem;
-      }
+    .tax-toggle {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      height: 2.25rem;
+    }
 
-      .filter.active {
-        color: #0d9488;
-        opacity: 1;
-        font-weight: 600;
-        transform: translateY(-2px);
-        transition: all 0.2s ease;
-      }
+    .tax-toggle:hover {
+      background-color: rgba(13, 148, 136, 0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #0d9488;
+    }
 
-      .filter.active i {
-        color: #0d9488;
-        filter: drop-shadow(0 2px 6px rgba(13, 148, 136, 0.4));
-      }
+    .tax-toggle .form-check-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+    }
 
-      .filter.active p {
-        color: #0d9488;
-        text-shadow: 0 1px 4px rgba(13, 148, 136, 0.25);
-      }
-    </style>
+    .tax-toggle .form-check-input {
+      cursor: pointer;
+      margin-right: 0.5rem;
+    }
 
-    <body>
-      <div id="filters" class="d-flex flex-wrap align-items-center gap-2 mt-2">
-        <div class="filter-bar-inner">
-          <div class="filter-categories">
-          <a href="/listings?category=Trending<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Trending">
+    .filter.active {
+      color: #0d9488;
+      opacity: 1;
+      font-weight: 600;
+      transform: translateY(-2px);
+      background-color: rgba(13, 148, 136, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    .filter.active i {
+      color: #0d9488;
+      filter: drop-shadow(0 2px 6px rgba(13, 148, 136, 0.4));
+    }
+
+    .filter.active p {
+      color: #0d9488;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(13, 148, 136, 0.25);
+    }
+  </style>
+
+  <body>
+    <div id="filters" class="d-flex flex-wrap align-items-center gap-2 mt-2">
+      <div class="filter-bar-inner">
+        <div class="filter-categories">
+          <a href="/listings?category=Trending<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Trending">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
           </a>
-          <a href="/listings?category=Rooms<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Rooms">
+          <a href="/listings?category=Rooms<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Rooms">
             <div><i class="fa-solid fa-bed"></i></div>
             <p>Rooms</p>
           </a>
-          <a href="/listings?category=Entire%20Home<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Entire Home">
+          <a href="/listings?category=Entire%20Home<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Entire Home">
             <div><i class="fa-solid fa-house"></i></div>
             <p>Entire Home</p>
           </a>
-          <a href="/listings?category=Pool<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pool">
+          <a href="/listings?category=Pool<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Pool">
             <div><i class="fa-solid fa-water-ladder"></i></div>
             <p>Pool</p>
           </a>
-          <a href="/listings?category=Beach<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Beach">
+          <a href="/listings?category=Beach<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Beach">
             <div><i class="fa-solid fa-umbrella-beach"></i></div>
             <p>Beach</p>
           </a>
-          <a href="/listings?category=Mountain<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Mountain">
+          <a href="/listings?category=Mountain<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Mountain">
             <div><i class="fa-solid fa-mountain"></i></div>
             <p>Mountain</p>
           </a>
-          <a href="/listings?category=Nature<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Nature">
+          <a href="/listings?category=Nature<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Nature">
             <div><i class="fa-solid fa-tree"></i></div>
             <p>Nature</p>
           </a>
-          <a href="/listings?category=City<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="City">
+          <a href="/listings?category=City<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="City">
             <div><i class="fa-solid fa-city"></i></div>
             <p>City</p>
           </a>
-          <a href="/listings?category=Luxury<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Luxury">
+          <a href="/listings?category=Luxury<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Luxury">
             <div><i class="fa-solid fa-gem"></i></div>
             <p>Luxury</p>
           </a>
-          <a href="/listings?category=Family<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Family">
+          <a href="/listings?category=Family<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Family">
             <div><i class="fa-solid fa-users"></i></div>
             <p>Family</p>
           </a>
-          <a href="/listings?category=Pet%20Friendly<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pet Friendly">
+          <a href="/listings?category=Pet%20Friendly<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>"
+            class="filter filter-link" data-category="Pet Friendly">
             <div><i class="fa-solid fa-dog"></i></div>
             <p>Pet Friendly</p>
           </a>
-          </div>
-          <div class="tax-toggle">
-            <div class="form-check-reverse form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-              <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
-            </div>
+        </div>
+        <div class="tax-toggle">
+          <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
           </div>
         </div>
       </div>
+    </div>
 
-      <% if(allListings.length===0) { %>
-        <div class="text-center mt-5">
-          <h4>No listings found 😔</h4>
-          <p>Try searching with a different keyword or category.</p>
-        </div>
-        <% } %>
+    <% if(allListings.length===0) { %>
+      <div class="text-center mt-5">
+        <h4>No listings found 😔</h4>
+        <p>Try searching with a different keyword or category.</p>
+      </div>
+      <% } %>
 
-          <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-            <% for(let listing of allListings) { %>
-              <a href="/listings/<%= listing._id %>" class="listing-link">
-                <div class="card col listing-card">
-                  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
-                  <div class="card-img-overlay"></div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      <b>
-                        <%= listing.title %>
-                      </b><br>
-                      &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
-                        <i class="tax-info"> &nbsp; &nbsp; +18% GST </i>
-                    </p>
-                  </div>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+          <% for(let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+              <div class="card col listing-card">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <b>
+                      <%= listing.title %>
+                    </b><br>
+                    &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+                      <i class="tax-info"> &nbsp; &nbsp; +18% GST </i>
+                  </p>
                 </div>
-              </a>
+              </div>
+            </a>
 
-              <% } %>
-          </div>
+            <% } %>
+        </div>
 
 
 
-    </body>
+  </body>
 
-    <script>
-      // Tax switch toggle functionality
-      let taxSwitch = document.getElementById("switchCheckDefault");
-      taxSwitch.addEventListener("click", () => {
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for (info of taxInfo) {
-          if (info.style.display != "inline") {
-            info.style.display = "inline";
-          } else {
-            info.style.display = "none";
-          }
+  <script>
+    // Tax switch toggle functionality
+    let taxSwitch = document.getElementById("switchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (info of taxInfo) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline";
+        } else {
+          info.style.display = "none";
+        }
+      }
+    });
+
+
+    // Highlight active category from URL
+    (function highlightActiveCategory() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeCategory = urlParams.get("category");
+
+      if (!activeCategory) return;
+
+      const filters = document.querySelectorAll(".filter");
+
+      filters.forEach(filter => {
+        const category = filter.getAttribute("data-category");
+
+        if (category === activeCategory) {
+          filter.classList.add("active");
         }
       });
+    })();
 
-
-      // Highlight active category from URL
-      (function highlightActiveCategory() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const activeCategory = urlParams.get("category");
-
-        if (!activeCategory) return;
-
-        const filters = document.querySelectorAll(".filter");
-
-        filters.forEach(filter => {
-          const category = filter.getAttribute("data-category");
-
-          if (category === activeCategory) {
-            filter.classList.add("active");
-          }
-        });
-      })();
-
-    </script>
+  </script>
