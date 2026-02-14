@@ -1,18 +1,47 @@
 <% layout("/layouts/boilerplate") -%>
   
     <style>
+      /* Single centered block: categories + toggle as one cohesive row */
       #filters {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .filter-bar-inner {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
+        border: 1px solid #eee;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      .filter-categories {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
       }
 
       .filter {
         text-align: center;
-        margin-right: 0.5rem;
-        margin-top: 0.5rem;
+        margin-right: 0;
+        margin-top: 0;
         opacity: 0.7;
         text-decoration: none;
         color: inherit;
+        flex-shrink: 0;
       }
 
       .filter.filter-link {
@@ -35,18 +64,16 @@
       }
 
       .tax-toggle {
-        margin-left: auto;
-        margin-top: 2rem;
-        /* Push toggle to right */
+        flex-shrink: 0;
         display: flex;
         align-items: center;
-        padding: 1rem;
+        padding: 0.4rem 0.75rem;
         border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        background-color: #fafafa;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         transition: all 0.2s ease;
-        height: 2.5rem;
+        height: 2.25rem;
       }
 
       .tax-toggle:hover {
@@ -87,55 +114,58 @@
 
     <body>
       <div id="filters" class="d-flex flex-wrap align-items-center gap-2 mt-2">
-        <a href="/listings?category=Trending<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Trending">
-          <div><i class="fa-solid fa-fire"></i></div>
-          <p>Trending</p>
-        </a>
-        <a href="/listings?category=Rooms<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Rooms">
-          <div><i class="fa-solid fa-bed"></i></div>
-          <p>Rooms</p>
-        </a>
-        <a href="/listings?category=Entire%20Home<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Entire Home">
-          <div><i class="fa-solid fa-house"></i></div>
-          <p>Entire Home</p>
-        </a>
-        <a href="/listings?category=Pool<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pool">
-          <div><i class="fa-solid fa-water-ladder"></i></div>
-          <p>Pool</p>
-        </a>
-        <a href="/listings?category=Beach<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Beach">
-          <div><i class="fa-solid fa-umbrella-beach"></i></div>
-          <p>Beach</p>
-        </a>
-        <a href="/listings?category=Mountain<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Mountain">
-          <div><i class="fa-solid fa-mountain"></i></div>
-          <p>Mountain</p>
-        </a>
-        <a href="/listings?category=Nature<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Nature">
-          <div><i class="fa-solid fa-tree"></i></div>
-          <p>Nature</p>
-        </a>
-        <a href="/listings?category=City<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="City">
-          <div><i class="fa-solid fa-city"></i></div>
-          <p>City</p>
-        </a>
-        <a href="/listings?category=Luxury<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Luxury">
-          <div><i class="fa-solid fa-gem"></i></div>
-          <p>Luxury</p>
-        </a>
-        <a href="/listings?category=Family<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Family">
-          <div><i class="fa-solid fa-users"></i></div>
-          <p>Family</p>
-        </a>
-        <a href="/listings?category=Pet%20Friendly<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pet Friendly">
-          <div><i class="fa-solid fa-dog"></i></div>
-          <p>Pet Friendly</p>
-        </a>
-
-        <div class="tax-toggle">
-          <div class="form-check-reverse form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+        <div class="filter-bar-inner">
+          <div class="filter-categories">
+          <a href="/listings?category=Trending<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Trending">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+          </a>
+          <a href="/listings?category=Rooms<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Rooms">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+          </a>
+          <a href="/listings?category=Entire%20Home<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Entire Home">
+            <div><i class="fa-solid fa-house"></i></div>
+            <p>Entire Home</p>
+          </a>
+          <a href="/listings?category=Pool<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pool">
+            <div><i class="fa-solid fa-water-ladder"></i></div>
+            <p>Pool</p>
+          </a>
+          <a href="/listings?category=Beach<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Beach">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+          </a>
+          <a href="/listings?category=Mountain<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Mountain">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountain</p>
+          </a>
+          <a href="/listings?category=Nature<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Nature">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Nature</p>
+          </a>
+          <a href="/listings?category=City<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="City">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>City</p>
+          </a>
+          <a href="/listings?category=Luxury<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Luxury">
+            <div><i class="fa-solid fa-gem"></i></div>
+            <p>Luxury</p>
+          </a>
+          <a href="/listings?category=Family<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Family">
+            <div><i class="fa-solid fa-users"></i></div>
+            <p>Family</p>
+          </a>
+          <a href="/listings?category=Pet%20Friendly<%= typeof q !== 'undefined' && q ? '&q=' + encodeURIComponent(q) : '' %>" class="filter filter-link" data-category="Pet Friendly">
+            <div><i class="fa-solid fa-dog"></i></div>
+            <p>Pet Friendly</p>
+          </a>
+          </div>
+          <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+              <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            </div>
           </div>
         </div>
       </div>

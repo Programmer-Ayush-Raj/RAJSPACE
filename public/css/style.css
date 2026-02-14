@@ -333,7 +333,15 @@ textarea.form-control {
     padding-top: 1rem;
   }
 
-  /* Category filters: touch-friendly, proper wrap */
+  /* Category filters: full-width bar, toggle wraps below */
+  #filters .filter-bar-inner {
+    width: 100%;
+  }
+
+  #filters .filter-categories {
+    width: 100%;
+  }
+
   #filters .filter.filter-link {
     min-height: 44px;
     min-width: 44px;
@@ -350,6 +358,7 @@ textarea.form-control {
   }
 
   .tax-toggle {
+    position: static;
     margin-left: 0;
     margin-top: 1rem;
     width: 100%;
