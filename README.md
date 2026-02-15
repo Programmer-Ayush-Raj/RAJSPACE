@@ -9,9 +9,9 @@
 
 <br/>
 
-[![Node.js](https://img.shields.io/badge/Node.js-24.x-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-5.x-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-7.x-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-8.x-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![EJS](https://img.shields.io/badge/EJS-Templates-A91B0D?style=for-the-badge)](https://ejs.co/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Mapbox](https://img.shields.io/badge/Mapbox-GL%20JS-000000?style=for-the-badge&logo=mapbox&logoColor=white)](https://www.mapbox.com/)
@@ -93,24 +93,24 @@
     <td align="center"><b>Listing Detail</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/home_v2.png" alt="Home" width="100%"/></td>
-    <td><img src="./screenshots/listinginfo_v2.png" alt="Listing Detail" width="100%"/></td>
+    <td><img src="./screenshots/home_v3.png" alt="Home" width="100%"/></td>
+    <td><img src="./screenshots/listinginfo_v3.png" alt="Listing Detail" width="100%"/></td>
   </tr>
   <tr>
     <td align="center"><b>Category Filter</b></td>
     <td align="center"><b>Map & Reviews</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/category_v2.png" alt="Category" width="100%"/></td>
-    <td><img src="./screenshots/mapandreviews_v2.png" alt="Map and Reviews" width="100%"/></td>
+    <td><img src="./screenshots/category_v3.png" alt="Category" width="100%"/></td>
+    <td><img src="./screenshots/mapandreviews_v3.png" alt="Map and Reviews" width="100%"/></td>
   </tr>
   <tr>
     <td align="center"><b>Create Listing</b></td>
     <td align="center"><b>Login / Auth</b></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/create_v2.png" alt="Create Listing" width="100%"/></td>
-    <td><img src="./screenshots/login_v2.png" alt="Login" width="100%"/></td>
+    <td><img src="./screenshots/create_v3.png" alt="Create Listing" width="100%"/></td>
+    <td><img src="./screenshots/login_v3.png" alt="Login" width="100%"/></td>
   </tr>
 </table>
 
@@ -122,12 +122,14 @@
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **Explore & Search** | Browse stays by category, search by location/keyword | ✅ |
+| **Explore & Search** | Browse stays by scrollable categories, search by location/keyword | ✅ |
 | **Wishlist** | Session-based wishlist; save and manage favorites | ✅ |
 | **Full CRUD** | Create, read, update, delete your own listings | ✅ |
 | **Reviews** | Star ratings + comments; authors can delete own reviews | ✅ |
 | **Host Badge** | RAJSPACE Verified Host badge on listings | ✅ |
 | **Review Analytics** | Average rating and review count on listing pages | ✅ |
+| **Tax Toggle** | Toggle to display total price including taxes | ✅ |
+| **Dark Mode** | Optimized dark mode support for better visibility | ✅ |
 | **Interactive Maps** | Mapbox-powered maps showing listing locations | ✅ |
 | **Image Upload** | Cloudinary integration for listing images | ✅ |
 | **Auth** | Sign up, login, logout with Passport.js | ✅ |
@@ -153,10 +155,10 @@
 
 | Category | Technology | Purpose |
 |----------|------------|---------|
-| **Runtime** | Node.js 24 | JavaScript runtime |
+| **Runtime** | Node.js 22 | JavaScript runtime |
 | **Framework** | Express 5 | Web server, routing, middleware |
 | **Database** | MongoDB | NoSQL document store |
-| **ODM** | Mongoose | Schema, validation, population |
+| **ODM** | Mongoose 9 | Schema, validation, population |
 | **Auth** | Passport.js (local) | Session-based authentication |
 | **Session** | express-session + connect-mongo | Persistent sessions in MongoDB |
 | **Templates** | EJS + ejs-mate | Server-side rendering, layouts |
@@ -378,7 +380,7 @@ Before you begin, ensure you have the following installed:
 
 | Requirement | Version | Check Command |
 |-------------|---------|---------------|
-| **Node.js** | 24.x (LTS) | `node -v` |
+| **Node.js** | 22.x (LTS) | `node -v` |
 | **npm** | 10.x+ | `npm -v` |
 | **MongoDB** | 7.x (local or Atlas) | `mongod --version` |
 
