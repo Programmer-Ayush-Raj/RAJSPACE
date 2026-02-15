@@ -304,7 +304,7 @@ erDiagram
 
 ```
 rajspace/
-├── 📁 assets/                    # Logo, banner (add your images here)
+├── 📁 assets/                    # banner
 │   └── banner.png
 ├── 📁 screenshots/               # Website screenshots
 │   ├── home_v3.png
