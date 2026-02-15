@@ -305,15 +305,14 @@ erDiagram
 ```
 rajspace/
 ├── 📁 assets/                    # Logo, banner (add your images here)
-│   ├── logo.png
 │   └── banner.png
 ├── 📁 screenshots/               # Website screenshots
-│   ├── home.png
-│   ├── category.png
-│   ├── create.png
-│   ├── listinginfo.png
-│   ├── login.png
-│   └── mapandreviews.png
+│   ├── home_v3.png
+│   ├── category_v3.png
+│   ├── create_v3.png
+│   ├── listinginfo_v3.png
+│   ├── login_v3.png
+│   └── mapandreviews_v3.png
 ├── 📁 controllers/
 │   ├── listings.js               # Listing CRUD, show with populate & reviewStats
 │   ├── reviews.js                # Create/delete reviews
@@ -435,9 +434,9 @@ Visit **http://localhost:8080** — root redirects to `/listings`.
 | `ATLASDB_URL` | ✅ | MongoDB connection string | `mongodb://127.0.0.1:27017/rajspace` |
 | `SECRET` | ✅ | Session secret (long random string) | `your-super-secret-key-here` |
 | `MAP_TOKEN` | ✅ | Mapbox public access token | `pk.eyJ1...` |
-| `CLOUDINARY_CLOUD_NAME` | ✅ | Cloudinary cloud name | `your-cloud` |
-| `CLOUDINARY_API_KEY` | ✅ | Cloudinary API key | `123456789` |
-| `CLOUDINARY_API_SECRET` | ✅ | Cloudinary API secret | `your-secret` |
+| `CLOUD_NAME` | ✅ | Cloudinary cloud name | `your-cloud` |
+| `CLOUD_API_KEY` | ✅ | Cloudinary API key | `123456789` |
+| `CLOUD_API_SECRET` | ✅ | Cloudinary API secret | `your-secret` |
 | `NODE_ENV` | ❌ | `production` \| `development` | `development` |
 
 > **Tip:** For local MongoDB: `ATLASDB_URL=mongodb://127.0.0.1:27017/rajspace`
